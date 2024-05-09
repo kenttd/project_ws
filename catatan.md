@@ -1,0 +1,62 @@
+# todo
+
+POST /api/register/patient: Register a new patient account. [ ]
+POST /api/register/hospital: Register a new hospital. [ ]
+
+GET /api/providers: Retrieve a list of all healthcare providers associated with a specific hospital. [ ]
+GET /api/providers/{id}: Retrieve details of a specific healthcare provider. [ ]
+POST /api/providers: Add a new healthcare provider to a specific hospital. [ ]
+PUT /api/providers/{id}: Update details of a specific healthcare provider. [ ]
+DELETE /api/providers/{id}: Delete a specific healthcare provider. [ ]
+
+GET /api/patients: Retrieve a list of all patients for a specific hospital. [ ]
+GET /api/patients/{id}: Retrieve details of a specific patient. [ ]
+POST /api/patients: Add a new patient to a specific hospital. [ ]
+PUT /api/patients/{id}: Update details of a specific patient. [ ]
+
+GET /api/appointments: Retrieve a list of all appointments scheduled by a specific hospital. [ ]
+GET /api/appointments/{id}: Retrieve details of a specific appointment. [ ]
+POST /api/appointments: Schedule a new appointment for a specific hospital. [ ]
+PUT /api/appointments/{id}: Update details of a specific appointment. [ ]
+DELETE /api/appointments/{id}: Cancel a specific appointment. [ ]
+
+GET /api/services: Retrieve a list of all services or procedures offered by a specific hospital. [ ]
+GET /api/services/{id}: Retrieve details of a specific service or procedure. [ ]
+POST /api/services: Add a new service or procedure to a specific hospital. [ ]
+PUT /api/services/{id}: Update details of a specific service or procedure. [ ]
+DELETE /api/services/{id}: Delete a specific service or procedure. [ ]
+
+# lama
+
+Entity Registration:
+POST /api/register/entity: Register a new entity (business, service provider, staff).
+
+Customer Registration:
+POST /api/register/customer: Register a new customer account.
+
+Appointments:
+GET /api/appointments: Retrieve all appointments.
+GET /api/appointments/{id}: Retrieve details of a specific appointment.
+POST /api/appointments/book: Book a new appointment.abc
+GET /api/appointments/available-slots: Retrieve available time slots for booking appointments.
+GET /api/appointments/{date}/available-slots: Retrieve available time slots for a specific date.
+GET /api/appointments/{date}/statistics: Retrieve statistics for appointments on a specific date.
+GET /api/appointments/{date}/summary: Retrieve a summary of appointments for a specific date.
+PUT /api/appointments/{id}: Update details of a specific appointment.
+POST /api/appointments/{id}/feedback: Allow customers to provide feedback on their appointments.
+
+Staff & Services:
+GET /api/staff: Retrieve a list of all staff members.
+GET /api/staff/{staff_id}/availability/calendar: Retrieve the availability calendar for a specific staff member.
+GET /api/staff/{staff_id}/appointments: Retrieve all appointments for a specific staff member.
+GET /api/staff/{staff_id}/availability: Retrieve availability of a specific staff member.
+PUT /api/staff/{staff_id}
+POST /api/businesses/{business_id}/staff: Add a new staff member to a business.
+
+Customers & Entities:
+GET /api/customers: Retrieve a list of all customers.
+GET /api/customers/{customer_id}/appointments: Retrieve all appointments for a specific customer.
+General:
+GET /api/availability: Retrieve general availability information (e.g., business hours, holidays).
+
+POST /api/subscription/subscribe: Subscribe to a specific subscription plan.

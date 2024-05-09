@@ -1,17 +1,13 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/sequelize");
 
-class Staffs extends Model {}
-Staffs.init(
+class Patients extends Model {}
+Patients.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
-    },
-    hospital_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
     },
     name: {
       type: DataTypes.STRING,
@@ -25,21 +21,29 @@ Staffs.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    department: {
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    date_of_birth: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    gender: {
       type: DataTypes.STRING,
       allowNull: false,
     },
   },
   {
     sequelize,
-    modelName: "Staffs",
-    tableName: "staffs",
+    modelName: "Patients",
+    tableName: "patients",
     timestamps: false,
     name: {
-      singular: "Staff",
-      plural: "Staffs",
+      singular: "Patient",
+      plural: "Patients",
     },
   }
 );
 
-module.exports = Staffs;
+module.exports = Patients;
