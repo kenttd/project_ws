@@ -5,14 +5,10 @@ app.use(express.urlencoded({ extended: true }));
 // const Associations = require("./src/model/associations")();
 
 const registerRouter = require("./routes/register");
+const hospitalRouter = require("./routes/hospital");
 
 app.use("/api/register", registerRouter);
-// A simple get greet method
-app.get("/greet", (req, res) => {
-  // get the passed query
-  const { name } = req.query;
-  res.send({ msg: `Welcome ${name || "kent"}!` });
-});
+app.use("/api/hospital", hospitalRouter);
 
 const port = 3000;
 app.listen(port, function (req, res) {

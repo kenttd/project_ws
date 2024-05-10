@@ -26,6 +26,10 @@ POST /api/services: Add a new service or procedure to a specific hospital. [ ]
 PUT /api/services/{id}: Update details of a specific service or procedure. [ ]
 DELETE /api/services/{id}: Delete a specific service or procedure. [ ]
 
+GET /api/hospitals/{id}: Retrieve details of a specific hospital. [x]
+PUT /api/hospitals/{id}: Update details of a specific hospital. [ ]
+DELETE /api/hospitals/{id}: Delete a specific hospital. [ ]
+
 # lama
 
 Entity Registration:
