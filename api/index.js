@@ -4,14 +4,14 @@ app.use(express.urlencoded({ extended: true }));
 
 // const Associations = require("./src/model/associations")();
 
-const registerRouter = require("./src/routes/register");
+const registerRouter = require("./routes/register");
 
 app.use("/api/register", registerRouter);
 // A simple get greet method
 app.get("/greet", (req, res) => {
   // get the passed query
   const { name } = req.query;
-  res.send({ msg: `Welcome ${name}!` });
+  res.send({ msg: `Welcome ${name || "kent"}!` });
 });
 
 const port = 3000;
