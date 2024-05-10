@@ -1,7 +1,7 @@
 # todo
 
-POST /api/register/patient: Register a new patient account. [ ]
-POST /api/register/hospital: Register a new hospital. [ ]
+POST /api/register/patient: Register a new patient account. [x]
+POST /api/register/hospital: Register a new hospital. [x]
 
 GET /api/providers: Retrieve a list of all healthcare providers associated with a specific hospital. [ ]
 GET /api/providers/{id}: Retrieve details of a specific healthcare provider. [ ]
