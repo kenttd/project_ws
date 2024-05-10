@@ -7,6 +7,12 @@ app.use(express.urlencoded({ extended: true }));
 const registerRouter = require("./src/routes/register");
 
 app.use("/api/register", registerRouter);
+// A simple get greet method
+app.get("/greet", (req, res) => {
+  // get the passed query
+  const { name } = req.query;
+  res.send({ msg: `Welcome ${name}!` });
+});
 
 const port = 3000;
 app.listen(port, function (req, res) {
