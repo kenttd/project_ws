@@ -16,5 +16,5 @@ app.get("/greet", (req, res) => {
 
 const port = 3000;
 app.listen(port, function (req, res) {
-  console.log("Application running on http://localhost:" + port);
+  console.log("Application running on http://localhosta:" + port);
 });
