@@ -29,6 +29,16 @@ Hospitals.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    api_key: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    api_key_end_date: {
+      type: DataTypes.DATE,
+    },
+    tier: {
+      type: DataTypes.INTEGER,
+    },
   },
   {
     sequelize,

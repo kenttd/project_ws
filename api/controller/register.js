@@ -1,4 +1,5 @@
 const Joi = require("joi").extend(require("@joi/date"));
+const crypto = require("crypto");
 const Hospitals = require("../model/hospitals");
 const Patients = require("../model/patients");
 module.exports = {
@@ -15,12 +16,18 @@ module.exports = {
     if (error) {
       return res.status(400).json({ message: error.message });
     }
+    value.api_key = crypto.randomBytes(20).toString("hex");
+    value.api_key_end_date = null;
+    value.tier = null;
+
     const hospital = new Hospitals(value);
     try {
       await hospital.save();
-      return res
-        .status(201)
-        .json({ message: "Hospital registered successfully" });
+      return res.status(201).json({
+        message: "Hospital registered successfully",
+        api_key: value.api_key,
+        isSuccessful: true,
+      });
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }

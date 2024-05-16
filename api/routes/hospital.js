@@ -1,7 +1,15 @@
 const express = require("express");
-const { getHospital } = require("../controller/hospital");
-// const { checkApiKey, balanceMinimum } = require("../middleware/middlewares");
+const { getHospital, editHospital } = require("../controller/hospital");
+const {
+  checkRateLimit,
+  logApiAccess,
+  verifyApiKey,
+  verifyToken,
+  ensureOwnership,
+} = require("../controller/middlewares");
 const router = express.Router();
-// router.put("/", [checkApiKey, balanceMinimum(1000)], recharge);
-router.get("/:id", getHospital);
+
+router.get("/:id", [verifyToken, checkRateLimit, logApiAccess], getHospital);
+router.put("/", [verifyToken, checkRateLimit, logApiAccess], editHospital);
+
 module.exports = router;
