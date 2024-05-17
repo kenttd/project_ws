@@ -4,10 +4,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // const Associations = require("./src/model/associations")();
 
-const registerRouter = require("./routes/register");
-const hospitalRouter = require("./routes/hospital");
-const tokenRouter = require("./routes/token");
-const tiersRouter = require("./routes/tiers");
+const registerRouter = require("../src/routes/register");
+const hospitalRouter = require("../src/routes/hospital");
+const tokenRouter = require("../src/routes/token");
+const tiersRouter = require("../src/routes/tiers");
 
 app.use("/api/register", registerRouter);
 app.use("/api/hospital", hospitalRouter);
