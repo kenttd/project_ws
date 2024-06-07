@@ -22,6 +22,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('access_logs');
+    await queryInterface.dropTable('access_log');
   }
 };
