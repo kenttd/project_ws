@@ -4,6 +4,7 @@ const { Op } = require("sequelize");
 require("dotenv").config();
 const Hospitals = require("../model/hospitals");
 const Patients = require("../model/patients");
+const Providers = require("../model/providers");
 const AccessLog = require("../model/access_log");
 module.exports = {
   verifyApiKey: async function (req, res, next) {
@@ -43,7 +44,7 @@ module.exports = {
   logApiAccess: async function (req, res, next) {
     const accessLog = new AccessLog({
       api_key: req.body.hospital.api_key,
-      endpoint: req.url,
+      endpoint: req.originalUrl,
     });
     await accessLog.save();
     next();
@@ -62,9 +63,15 @@ module.exports = {
     }
     next();
   },
-  ensureOwnership: async function (req, res, next) {
-    if (!req.params.id || req.params.id != req.body.hospital.id)
-      return res.status(401).json({ message: "Unauthorized" });
+  checkProviderSameAsHospital: async function (req, res, next) {
+    if (!req.params.id)
+      return res.status(400).json({ message: "Provider ID is required" });
+    const provider = await Providers.findByPk(req.params.id);
+    if (!provider || provider.hospital_id != req.body.hospital.id)
+      return res.status(401).json({
+        message: `Unauthorized. No provider with the ID ${req.params.id} is found in ${req.body.hospital.name}`,
+      });
+    req.body.provider = provider;
     next();
   },
 };

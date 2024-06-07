@@ -3,10 +3,10 @@
 POST /api/register/patient: Register a new patient account. [x]
 POST /api/register/hospital: Register a new hospital. [x]
 
-GET /api/providers: Retrieve a list of all healthcare providers associated with a specific hospital. [ ]
-GET /api/providers/{id}: Retrieve details of a specific healthcare provider. [ ]
-POST /api/providers: Add a new healthcare provider to a specific hospital. [ ]
-PUT /api/providers/{id}: Update details of a specific healthcare provider. [ ]
+GET /api/providers: Retrieve a list of all healthcare providers associated with a specific hospital. [x]
+GET /api/providers/{id}: Retrieve details of a specific healthcare provider. [x]
+POST /api/providers: Add a new healthcare provider to a specific hospital. [x]
+PUT /api/providers/{id}: Update details of a specific healthcare provider. [x]
 DELETE /api/providers/{id}: Delete a specific healthcare provider. [ ]
 
 GET /api/patients: Retrieve a list of all patients for a specific hospital. [ ]
@@ -27,8 +27,10 @@ PUT /api/services/{id}: Update details of a specific service or procedure. [ ]
 DELETE /api/services/{id}: Delete a specific service or procedure. [ ]
 
 GET /api/hospitals/{id}: Retrieve details of a specific hospital. [x]
-PUT /api/hospitals/{id}: Update details of a specific hospital. [ ]
-DELETE /api/hospitals/{id}: Delete a specific hospital. [ ]
+PUT /api/hospitals/: Update details of a hospital. [x]
+DELETE /api/hospitals/{id}: Delete a specific hospital. [ ]?
+
+tambah upload gambar[ ]
 
 # lama
 
