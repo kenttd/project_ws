@@ -1,0 +1,6 @@
+npx sequelize-cli model:generate --name access_log --attributes access_time:time
+npx sequelize-cli model:generate --name appointments --attributes hospital_id:integer
+npx sequelize-cli model:generate --name hospitals --attributes name:string
+npx sequelize-cli model:generate --name patients --attributes name:string
+npx sequelize-cli model:generate --name procedures --attributes name:string
+npx sequelize-cli model:generate --name providers --attributes name:string
