@@ -7,7 +7,7 @@ GET /api/providers: Retrieve a list of all healthcare providers associated with 
 GET /api/providers/{id}: Retrieve details of a specific healthcare provider. [x]
 POST /api/providers: Add a new healthcare provider to a specific hospital. [x]
 PUT /api/providers/{id}: Update details of a specific healthcare provider. [x]
-DELETE /api/providers/{id}: Delete a specific healthcare provider. [ ]
+DELETE /api/providers/{id}: Delete a specific healthcare provider. [x]
 
 GET /api/patients: Retrieve a list of all patients for a specific hospital. [ ]
 GET /api/patients/{id}: Retrieve details of a specific patient. [ ]

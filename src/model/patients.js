@@ -29,7 +29,7 @@ Patients.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    gender: {
+    sex: {
       type: DataTypes.STRING,
       allowNull: false,
     },
