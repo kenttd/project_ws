@@ -18,21 +18,21 @@ module.exports = {
         phone:"123",
         address:"White House, Washington DC",
         date_of_birth:"20 November 1942",
-        gender:"male"
+        sex:"male"
       },{
         name:"Ronald McDonalld",
         email:"Ronald@gmail.com",
         phone:"456",
         address:"Any McDDonald Restaurants",
         date_of_birth:"10 July 1936",
-        gender:"male"
+        sex:"male"
       },{
         name:"Ethan Winter",
         email:"Winter@gmail.com",
         phone:"789",
         address:"Maplewood Avenue, South Carolina",
         date_of_birth:"20 November 1981",
-        gender:"male"
+        sex:"male"
       }])
   },
 
