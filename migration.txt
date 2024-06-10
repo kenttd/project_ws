@@ -11,11 +11,13 @@ npx sequelize-cli seed:generate --name hospitals-seeder
 npx sequelize-cli seed:generate --name patients-seeder
 npx sequelize-cli seed:generate --name procedures-seeder
 npx sequelize-cli seed:generate --name providers-seeder
+npx sequelize-cli seed:generate --name appointments-seeder
 
 npx sequelize-cli db:seed --seed 20240608023001-patients-seeder.js
 npx sequelize-cli db:seed --seed 20240608023008-procedures-seeder.js
 npx sequelize-cli db:seed --seed 20240608022935-hospitals-seeder.js
 npx sequelize-cli db:seed --seed 20240608023016-providers-seeder.js
+npx sequelize-cli db:seed --seed 20240610030940-appointments-seeder.js
 
 npx sequelize-cli db:seed:all
 npx sequelize-cli db:seed:undo:all
