@@ -1,7 +1,7 @@
 'use strict';
 
 const { TIME } = require('sequelize');
-const { now } = require('sequelize/lib/utils');
+// const { now } = require('sequelize/lib/utils');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -15,6 +15,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+   const now = new Date()
    await queryInterface.bulkInsert('access_log',[{
     access_time:new Date(now.getTime()+1000*1),
     api_key:"a31038de2e34de567a25aada6a7b67b6c7f972d5",

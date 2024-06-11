@@ -24,5 +24,7 @@ npx sequelize-cli db:seed --seed 20240608023016-providers-seeder.js
 npx sequelize-cli db:seed --seed 20240610030940-appointments-seeder.js
 npx sequelize-cli db:seed --seed 20240610131925-access_log-seeder.js
 
+npx sequelize-cli db:seed:undo --seed 20240610131925-access_log-seeder.js
+
 npx sequelize-cli db:seed:all
 npx sequelize-cli db:seed:undo:all
