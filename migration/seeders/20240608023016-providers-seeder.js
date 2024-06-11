@@ -17,21 +17,24 @@ module.exports = {
       name:"Alto Clef",
       email:"Clef@gmail.com",
       phone:"123",
-      department:"Doctor"
+      department:"Doctor",
+      seed:true
    },
    {
       hospital_id:2,
       name:"Jack Bright",
       email:"Bright@gmail.com",
       phone:"456",
-      department:"Research"
+      department:"Research",
+      seed:true
     },
     {
       hospital_id:2,
       name:"Benjamin Kondraki",
       email:"Kondraki@gmail.com",
       phone:"789",
-      department:"Vaccine"
+      department:"Vaccine",
+      seed:true
    },
   ])
   },
@@ -44,9 +47,10 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     await queryInterface.bulkDelete('providers',{
-      name:{
-        [Sequelize.Op.in]:["Alto Clef","Jack Bright","Benjamin Kondraki"]
-      }
+      // name:{
+      //   [Sequelize.Op.in]:["Alto Clef","Jack Bright","Benjamin Kondraki"]
+      // }
+      seed:true
     },{})
   }
 };

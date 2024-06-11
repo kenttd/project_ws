@@ -17,21 +17,24 @@ module.exports = {
       name:"Mukbang",
       description:"Patients can eat whatever they want",
       duration:"1h",
-      price:"0$"
+      price:"0$",
+      seed:true
    },
    {
       hospital_id:2,
       name:"BobaTeaMukbang",
       description:"Patients can drink whatever desert drink they want",
       duration:"1h",
-      price:"1$"
+      price:"1$",
+      seed:true
   },
   {
       hospital_id:2,
       name:"IceMukbang",
       description:"Patients can eat whatever ice cream they want",
       duration:"1h",
-      price:"2$"
+      price:"2$",
+      seed:true
   },
   ])},
 
@@ -43,9 +46,10 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     await queryInterface.bulkDelete('procedures',{
-      name:{
-        [Sequelize.Op.in]:["Mukbang","BobaTeaMukbang","IceMukbang"]
-      }
+      // name:{
+      //   [Sequelize.Op.in]:["Mukbang","BobaTeaMukbang","IceMukbang"]
+      // }
+      seed:true
     },{})
   }
 };

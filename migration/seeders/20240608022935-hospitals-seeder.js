@@ -18,7 +18,8 @@ module.exports = {
         phone:"123",
         email:"Brookhaven@gmail.com",
         website:"google.com",
-        api_key:crypto.randomUUID()
+        api_key:crypto.randomUUID(),
+        seed:true
         // api_key_end_date:"",
         // tier:""
    },{
@@ -27,7 +28,8 @@ module.exports = {
         phone:"456",
         email:"Alchemilla@gmail.com",
         website:"google.com",
-        api_key:crypto.randomUUID()
+        api_key:crypto.randomUUID(),
+        seed:true
         // api_key_end_date:"",
         // tier:""
     },
@@ -37,7 +39,8 @@ module.exports = {
       phone:"789",
       email:"Cedar@gmail.com",
       website:"google.com",
-      api_key:crypto.randomUUID()
+      api_key:crypto.randomUUID(),
+      seed:true
       // api_key_end_date:"",
       // tier:""
     },
@@ -47,7 +50,8 @@ module.exports = {
       phone:"101",
       email:"Racoon@gmail.com",
       website:"google.com",
-      api_key:crypto.randomUUID()
+      api_key:crypto.randomUUID(),
+      seed:true
       // api_key_end_date:"",
       // tier:""
     },
@@ -57,7 +61,8 @@ module.exports = {
       phone:"112",
       email:"Spencer@gmail.com",
       website:"google.com",
-      api_key:crypto.randomUUID()
+      api_key:crypto.randomUUID(),
+      seed:true
       // api_key_end_date:"",
       // tier:""
     }
@@ -71,9 +76,10 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
     await queryInterface.bulkDelete('hospitals',{
-      name:{
-        [Sequelize.Op.in]:["Brookhaven Hospital","Alchemilla Hospital","Cedar Grove Sanitarium","Racoon General Hospital","Spencer Memorial Hospital"]
-      }
+      // name:{
+      //   [Sequelize.Op.in]:["Brookhaven Hospital","Alchemilla Hospital","Cedar Grove Sanitarium","Racoon General Hospital","Spencer Memorial Hospital"]
+      // }
+      seed:true
     },{})
   }
 };
