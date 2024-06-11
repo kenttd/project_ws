@@ -7,6 +7,13 @@ npx sequelize-cli model:generate --name procedures --attributes name:string
 npx sequelize-cli model:generate --name providers --attributes name:string
 
 npx sequelize-cli migration:generate --name access_log-add-collumn-seed
+
+npx sequelize-cli migration:generate --name patients-add-collumn-seed
+npx sequelize-cli migration:generate --name hospitals-add-collumn-seed
+npx sequelize-cli migration:generate --name providers-add-collumn-seed
+npx sequelize-cli migration:generate --name procedures-add-collumn-seed
+npx sequelize-cli migration:generate --name appointments-add-collumn-seed
+
 npx sequelize-cli db:migrate
 
 Seeder : 
