@@ -33,6 +33,10 @@ Patients.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    profile_picture: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     sequelize,
