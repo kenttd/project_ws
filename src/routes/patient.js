@@ -1,0 +1,25 @@
+const express = require("express");
+const {
+  addPatient,
+  editPatient,
+  getSpecificPatient,
+} = require("../controller/patient");
+const {
+  checkRateLimit,
+  logApiAccess,
+  verifyToken,
+  checkPatientID,
+} = require("../controller/middlewares");
+const router = express.Router();
+router.get(
+  "/:id",
+  [checkPatientID, verifyToken, checkRateLimit, logApiAccess],
+  getSpecificPatient
+);
+router.post("/", [verifyToken, checkRateLimit, logApiAccess], addPatient);
+router.put(
+  "/:id",
+  [checkPatientID, verifyToken, checkRateLimit, logApiAccess],
+  editPatient
+);
+module.exports = router;

@@ -9,28 +9,31 @@ POST /api/providers: Add a new healthcare provider to a specific hospital. [x]
 PUT /api/providers/{id}: Update details of a specific healthcare provider. [x]
 DELETE /api/providers/{id}: Delete a specific healthcare provider. [x]
 
-GET /api/patients: Retrieve a list of all patients for a specific hospital. [ ]
-GET /api/patients/{id}: Retrieve details of a specific patient. [ ]
-POST /api/patients: Add a new patient to a specific hospital. [ ]
-PUT /api/patients/{id}: Update details of a specific patient. [ ]
+GET /api/patients: Retrieve a list of all patients for a specific hospital. [ ]?
+GET /api/patients/{id}: Retrieve details of a specific patient. [x]
+POST /api/patients: Add a new patient to a specific hospital. [x]
+PUT /api/patients/{id}: Update details of a specific patient. [x]
 
 GET /api/appointments: Retrieve a list of all appointments scheduled by a specific hospital. [ ]
-GET /api/appointments/{id}: Retrieve details of a specific appointment. [ ]
-POST /api/appointments: Schedule a new appointment for a specific hospital. [ ]
-PUT /api/appointments/{id}: Update details of a specific appointment. [ ]
-DELETE /api/appointments/{id}: Cancel a specific appointment. [ ]
+GET /api/appointments/{id}: Retrieve details of a specific appointment. [x]
+POST /api/appointments: Schedule a new appointment for a specific hospital. [x]
+PUT /api/appointments/{id}: Update details of a specific appointment. [x]
+DELETE /api/appointments/{id}: Cancel a specific appointment. [x]
 
-GET /api/services: Retrieve a list of all services or procedures offered by a specific hospital. [ ]
-GET /api/services/{id}: Retrieve details of a specific service or procedure. [ ]
-POST /api/services: Add a new service or procedure to a specific hospital. [ ]
-PUT /api/services/{id}: Update details of a specific service or procedure. [ ]
-DELETE /api/services/{id}: Delete a specific service or procedure. [ ]
+GET /api/procedures: Retrieve a list of all services or procedures offered by a specific hospital. [ ]
+GET /api/procedures/{id}: Retrieve details of a specific service or procedure. [x]
+POST /api/procedures: Add a new service or procedure to a specific hospital. [x]
+PUT /api/procedures/{id}: Update details of a specific service or procedure. [x]
+DELETE /api/procedures/{id}: Delete a specific service or procedure. [x]
 
 GET /api/hospitals/{id}: Retrieve details of a specific hospital. [x]
 PUT /api/hospitals/: Update details of a hospital. [x]
 DELETE /api/hospitals/{id}: Delete a specific hospital. [ ]?
 
 tambah upload gambar[ ]
+
+ide:
+convert currency[ ]
 
 # lama
 

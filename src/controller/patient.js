@@ -9,7 +9,7 @@ module.exports = {
         email: Joi.string().email().required(),
         phone: Joi.string().required(),
         address: Joi.string().required(),
-        date_of_birth: Joi.date().format("YYYY-MM-DD").required,
+        date_of_birth: Joi.string().required(),
         sex: Joi.string().required(),
       }).unknown(true);
       const { error, value } = schema.validate(req.body);
