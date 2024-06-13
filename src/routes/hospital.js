@@ -1,5 +1,11 @@
 const express = require("express");
-const { getHospital, editHospital } = require("../controller/hospital");
+const {
+  getHospital,
+  editHospital,
+  authenticate,
+  callback,
+  test,
+} = require("../controller/hospital");
 const {
   checkRateLimit,
   logApiAccess,
@@ -8,7 +14,9 @@ const {
   ensureOwnership,
 } = require("../controller/middlewares");
 const router = express.Router();
-
+router.get("/test", [verifyToken], test);
+router.get("/authenticate", [verifyToken], authenticate);
+router.get("/callback", callback);
 router.get("/:id", [verifyToken, checkRateLimit, logApiAccess], getHospital);
 router.put("/", [verifyToken, checkRateLimit, logApiAccess], editHospital);
 

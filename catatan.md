@@ -30,8 +30,12 @@ GET /api/hospitals/{id}: Retrieve details of a specific hospital. [x]
 PUT /api/hospitals/: Update details of a hospital. [x]
 DELETE /api/hospitals/{id}: Delete a specific hospital. [ ]?
 
-tambah upload gambar[ ]
-
+tambah upload gambar[x]
+tambah url shortner[x]
+tambah bcrypt[ ]
+tambah event ke gcal account[x]
+delete event ke gcal account[x]
+update event ke gcal account[x]
 ide:
 convert currency[ ]
 

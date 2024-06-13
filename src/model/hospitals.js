@@ -39,6 +39,9 @@ Hospitals.init(
     tier: {
       type: DataTypes.INTEGER,
     },
+    refresh_token: {
+      type: DataTypes.STRING,
+    },
   },
   {
     sequelize,

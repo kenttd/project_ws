@@ -2,7 +2,10 @@ const Joi = require("joi").extend(require("@joi/date"));
 const Hospitals = require("../model/hospitals");
 const Patients = require("../model/patients");
 const supabase = require("../config/supabase");
+const axios = require("axios").default;
 const fs = require("fs");
+require("dotenv").config();
+
 module.exports = {
   addPatient: async function (req, res) {
     try {
@@ -28,7 +31,21 @@ module.exports = {
       if (errorSupabase) {
         return res.status(500).json({ message: errorSupabase.message });
       }
-      value.profile_picture = `https://ovntecrpiucwgbhtntsg.supabase.co/storage/v1/object/public/project_ws/${data.path}`;
+      const link = `https://ovntecrpiucwgbhtntsg.supabase.co/storage/v1/object/public/project_ws/${data.path}`;
+      const { data: dataAxios } = await axios.post(
+        `https://api.tinyurl.com/create?api_token=${process.env.TINYURL_API_KEY}`,
+        {
+          url: link,
+          domain: "tinyurl.com",
+          description: "string",
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      value.profile_picture = dataAxios.data.tiny_url;
       const patient = await Patients.create(value);
       return res.status(200).json(patient);
     } catch (error) {
@@ -42,7 +59,7 @@ module.exports = {
         email: Joi.string().email().required(),
         phone: Joi.string().required(),
         address: Joi.string().required(),
-        date_of_birth: Joi.date().format("YYYY-MM-DD").required(),
+        date_of_birth: Joi.string().required(),
         sex: Joi.string().required(),
       }).unknown(true);
       const { error, value } = schema.validate(req.body);

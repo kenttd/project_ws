@@ -41,6 +41,14 @@ Appointments.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    duration: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    gcal_id: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
   {
     sequelize,

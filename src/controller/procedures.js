@@ -51,6 +51,6 @@ module.exports = {
   },
   deleteProcedure: async function (req, res) {
     await req.body.procedure.destroy();
-    return res.status(204).json({ message: "Procedure deleted" });
+    return res.status(200).json({ message: "Procedure deleted" });
   },
 };
