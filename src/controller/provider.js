@@ -5,7 +5,7 @@ const Providers = require("../model/providers");
 const Patients = require("../model/patients");
 module.exports = {
   getAllProvider: async function (req, res) {
-    const listProvider = Providers.findAll({
+    const listProvider = await Providers.findAll({
       where: {
         hospital_id: req.body.hospital.id,
       },
