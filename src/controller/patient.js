@@ -18,12 +18,13 @@ module.exports = {
       if (error) {
         return res.status(400).json({ message: error.message });
       }
-      const file = createFileObject(req.profile_picture);
+      const file = createFileObject(req.file);
       const { data, errorSupabase } = await supabase.storage
         .from("project_ws")
-        .upload(req.profile_picture.originalname, file, {
-          contentType: req.profile_picture.mimetype,
+        .upload(req.file.originalname, file, {
+          contentType: req.file.mimetype,
         });
+      fs.unlinkSync(req.file.path);
       if (errorSupabase) {
         return res.status(500).json({ message: errorSupabase.message });
       }
