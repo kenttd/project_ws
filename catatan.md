@@ -37,7 +37,7 @@ tambah event ke gcal account[x]
 delete event ke gcal account[x]
 update event ke gcal account[x]
 ide:
-convert currency[ ]
+convert currency[x]
 
 # lama
 

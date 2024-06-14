@@ -9,6 +9,7 @@ const hospitalRouter = require("../src/routes/hospital");
 const providerRouter = require("../src/routes/provider");
 const patientRouter = require("../src/routes/patient");
 const appointmentsRouter = require("../src/routes/appointments");
+const proceduresRouter = require("../src/routes/procedures");
 const tokenRouter = require("../src/routes/token");
 const tiersRouter = require("../src/routes/tiers");
 
@@ -17,6 +18,7 @@ app.use("/api/hospital", hospitalRouter);
 app.use("/api/providers", providerRouter);
 app.use("/api/patients", patientRouter);
 app.use("/api/appointments", appointmentsRouter);
+app.use("/api/procedures", proceduresRouter);
 app.use("/api/token", tokenRouter);
 app.use("/api/tiers", tiersRouter);
 

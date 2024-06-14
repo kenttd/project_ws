@@ -2,7 +2,8 @@ const Joi = require("joi").extend(require("@joi/date"));
 var jwt = require("jsonwebtoken");
 require("dotenv").config();
 const Procedures = require("../model/procedures");
-const { get } = require("../routes/procedures");
+const axios = require("axios").default;
+
 module.exports = {
   addProcedure: async function (req, res) {
     const schema = Joi.object({
@@ -25,7 +26,23 @@ module.exports = {
     return res.status(201).json(newProcedure);
   },
   getProcedure: async function (req, res) {
-    return res.status(200).json({ procedure: req.body.procedure });
+    const procedure = req.body.procedure;
+    if (req.query.currency) {
+      const response = await axios.get(
+        "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json"
+      );
+      if (response.data[req.query.currency] === undefined) {
+        return res.status(400).json({ message: "Currency not found" });
+      }
+      const { data: responseFin } = await axios.get(
+        `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json`
+      );
+      const rate = responseFin.usd[req.query.currency];
+      procedure.price = (procedure.price * rate).toFixed(2);
+    }
+    return res
+      .status(200)
+      .json({ procedure, currency: req.query.currency || "USD" });
   },
   editProcedure: async function (req, res) {
     const schema = Joi.object({

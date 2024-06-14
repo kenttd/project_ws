@@ -12,7 +12,11 @@ const scopes = ["https://www.googleapis.com/auth/calendar"];
 module.exports = {
   getHospital: async function (req, res) {
     try {
-      const hospital = await Hospitals.findByPk(req.params.id);
+      const hospital = await Hospitals.findByPk(req.params.id, {
+        attributes: {
+          exclude: ["refresh_token", "api_key", "api_key_end_date", "tier"],
+        },
+      });
       if (!hospital) {
         return res.status(404).json({ message: "Hospital not found" });
       }

@@ -14,7 +14,7 @@ const {
   ensureOwnership,
 } = require("../controller/middlewares");
 const router = express.Router();
-router.get("/test", [verifyToken], test);
+// router.get("/test", [verifyToken], test);
 router.get("/authenticate", [verifyToken], authenticate);
 router.get("/callback", callback);
 router.get("/:id", [verifyToken, checkRateLimit, logApiAccess], getHospital);
