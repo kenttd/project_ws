@@ -9,7 +9,6 @@ module.exports = {
       address: Joi.string().required(),
       phone: Joi.string().required(),
       email: Joi.string().email().required(),
-      password: Joi.string().required(),
       website: Joi.string().required(),
     });
     const { error, value } = schema.validate(req.body);
