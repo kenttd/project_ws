@@ -55,7 +55,7 @@ module.exports = {
       await hospital.save();
       const styledEmail = getStyledEmail(hospital);
       resend.emails.send({
-        from: "onboarding@resend.dev",
+        from: "kent@quacker.online",
         to: hospital.email,
         subject: `Confirmation of Your Tier ${hospital.tier} Subscription - ${hospital.name}`,
         html: styledEmail,
