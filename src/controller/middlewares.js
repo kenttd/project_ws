@@ -40,13 +40,10 @@ module.exports = {
       if (err.name == "TokenExpiredError") {
         return res.status(401).json({ message: "Token expired" });
       }
-      return res
-        .status(401)
-        .json({
-          message: "Invalid token",
-          error: err.message,
-          headers: req.headers,
-        });
+      return res.status(401).json({
+        message: "Invalid token",
+        error: err.message,
+      });
     }
   },
   logApiAccess: async function (req, res, next) {
