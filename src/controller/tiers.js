@@ -5,15 +5,10 @@ require("dotenv").config();
 const Hospitals = require("../model/hospitals");
 const Patients = require("../model/patients");
 var nodemailer = require("nodemailer");
+const { Resend } = require("resend");
+const resend = new Resend(process.env.RESEND_API_KEY);
 const BASE_URL = process.env.BASE_URL;
 
-var transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "projectws2024@gmail.com",
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
 module.exports = {
   purchase: async function (req, res) {
     const schema = Joi.object({
@@ -59,18 +54,11 @@ module.exports = {
       );
       await hospital.save();
       const styledEmail = getStyledEmail(hospital);
-      var mailOptions = {
-        from: "projectws2024@gmail.com",
+      resend.emails.send({
+        from: "onboarding@resend.dev",
         to: hospital.email,
         subject: `Confirmation of Your Tier ${hospital.tier} Subscription - ${hospital.name}`,
         html: styledEmail,
-      };
-      transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-          console.log(error);
-        } else {
-          console.log("Email sent: " + info.response);
-        }
       });
       return res.status(200).json({
         message: "Successfully purchased",

@@ -25,6 +25,7 @@
     "nodemailer": "^6.9.13",
     "pg": "^8.11.5",
     "pg-hstore": "^2.3.4",
+    "resend": "^3.3.0",
     "sequelize": "^6.37.3",
     "stripe": "^15.2.0",
     "supabase": "^1.176.4"
