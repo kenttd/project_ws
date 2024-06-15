@@ -11,7 +11,7 @@ const {
   checkPatientID,
 } = require("../controller/middlewares");
 const multer = require("multer");
-const upload = multer({ dest: "uploads/" });
+const upload = multer({ dest: "/tmp/uploads/" });
 
 const router = express.Router();
 
