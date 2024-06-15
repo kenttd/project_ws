@@ -42,7 +42,11 @@ module.exports = {
       }
       return res
         .status(401)
-        .json({ message: "Invalid token", error: err.message });
+        .json({
+          message: "Invalid token",
+          error: err.message,
+          headers: req.headers,
+        });
     }
   },
   logApiAccess: async function (req, res, next) {
