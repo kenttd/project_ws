@@ -56,6 +56,7 @@ module.exports = {
       scope: scopes,
       include_granted_scopes: true,
       state: req.body.hospital.id,
+      prompt: "consent",
     });
     return res.status(200).json({ url: authorizationUrl });
   },
