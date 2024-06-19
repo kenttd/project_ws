@@ -39,6 +39,7 @@ module.exports = {
         .status(401)
         .json({ message: "API Key tier not set. Please purchase a new tier." });
     }
+    next();
   },
   verifyToken: async function (req, res, next) {
     try {

@@ -6,5 +6,5 @@ const {
 } = require("../controller/middlewares");
 const router = express.Router();
 // router.put("/", [checkApiKey, balanceMinimum(1000)], recharge);
-router.get("/", [verifyApiKey, checkIfApiKeyIsExpired], getToken);
+router.get("/", [verifyApiKey], getToken);
 module.exports = router;
