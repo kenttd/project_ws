@@ -35,3 +35,15 @@ npx sequelize-cli db:seed:undo --seed 20240610131925-access_log-seeder.js
 
 npx sequelize-cli db:seed:all
 npx sequelize-cli db:seed:undo:all
+
+
+
+npx sequelize-cli model:generate --name procedure_appointment --attributes appointment_id:integer
+npx sequelize-cli migration:generate --name procedure_appointment-add-collumn
+
+npx sequelize-cli db:migrate
+
+npx sequelize-cli seed:generate --name procedure_appointment-seeder
+
+npx sequelize-cli db:seed --seed 20240619030620-procedure_appointment-seeder.js
+npx sequelize-cli db:seed:undo --seed 20240619030620-procedure_appointment-seeder.js
