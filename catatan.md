@@ -32,7 +32,7 @@ DELETE /api/hospitals/{id}: Delete a specific hospital. [ ]?
 
 tambah upload gambar[x]
 tambah url shortner[x]
-tambah bcrypt[ ]
+resend email
 tambah event ke gcal account[x]
 delete event ke gcal account[x]
 update event ke gcal account[x]
