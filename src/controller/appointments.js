@@ -149,7 +149,7 @@ module.exports = {
       refresh_token: req.body.hospital.refresh_token,
     });
     const calendar = google.calendar({ version: "v3", auth: oauth2Client });
-    calendar.events.delete(
+    await calendar.events.delete(
       { calendarId: "primary", eventId: req.body.appointment.gcal_id },
       function (err) {
         if (err) {

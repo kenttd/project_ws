@@ -28,6 +28,18 @@ module.exports = {
     req.body.hospital = hospital;
     next();
   },
+  checkIfApiKeyIsExpired: async function (req, res, next) {
+    if (req.body.hospital.api_key_end_date < new Date()) {
+      return res
+        .status(401)
+        .json({ message: "API Key expired. Please purchase a new tier." });
+    }
+    if (req.body.hospital.tier === null) {
+      return res
+        .status(401)
+        .json({ message: "API Key tier not set. Please purchase a new tier." });
+    }
+  },
   verifyToken: async function (req, res, next) {
     try {
       var decoded = jwt.verify(
