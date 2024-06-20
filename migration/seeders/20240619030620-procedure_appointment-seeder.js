@@ -14,19 +14,19 @@ module.exports = {
     */
    await queryInterface.bulkInsert('procedure_appointment',[{
     appointment_id:19,
-    precedure_id:8,
+    procedure_id:8,
     seed:true
    },{
     appointment_id:22,
-    precedure_id:8,
+    procedure_id:8,
     seed:true
    },{
     appointment_id:21,
-    precedure_id:7,
+    procedure_id:7,
     seed:true
    },{
     appointment_id:23,
-    precedure_id:7,
+    procedure_id:7,
     seed:true
    }],{})
   },
