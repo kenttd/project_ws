@@ -8,11 +8,12 @@ const {
   checkRateLimit,
   logApiAccess,
   verifyToken,
-  checkPatientID,
+  checkAppointmentID,
 } = require("../controller/middlewares");
+const router = express.Router();
 router.get(
   "/:id",
-  [verifyToken, checkRateLimit, logApiAccess],
+  [checkAppointmentID, verifyToken, checkRateLimit, logApiAccess],
   getProcedureAppointment
 );
 router.post(
@@ -20,4 +21,9 @@ router.post(
   [verifyToken, checkRateLimit, logApiAccess],
   addProcedureAppointment
 );
-const router = express.Router();
+router.delete(
+  "/:id",
+  [checkAppointmentID, verifyToken, checkRateLimit, logApiAccess],
+  deleteProcedureAppointment
+);
+module.exports = router;

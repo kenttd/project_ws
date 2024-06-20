@@ -6,62 +6,50 @@ const Patients = require("../model/patients");
 const procedureAppointment = require("../model/procedure_appointment");
 module.exports = {
   getProcedureAppointment: async function (req, res) {
-    const appointment_id = req.params_id;
+    const appointment_id = req.params.id;
     const appointments = await procedureAppointment.findAll({
       where: {
         appointment_id: appointment_id,
       },
     });
+    return res.status(200).json(appointments);
   },
   addProcedureAppointment: async function (req, res) {
-    const procedureArray = req.body.procedureArray;
+    const procedures = req.body.procedures;
     const appointment_id = req.body.appointment_id;
-
-    if(procedureArray.length === 0) {
-      return res.status(400).json({
-        message: "Procedure array is empty"
-      });
-    }
-
-    if(Array.isArray(procedureArray) === false) {
+    if (Array.isArray(procedures) === false) {
       const procedure = await procedureAppointment.create({
         appointment_id: appointment_id,
-        procedure_id: procedureArray,
-      })
-
+        procedure_id: procedures,
+      });
       return res.status(201).json({
-        message: "Procedure appointment added"
+        message: "Procedure appointment added",
       });
     }
 
-    for (let i = 0; i < procedureArray.length; i++) {
+    for (let i = 0; i < procedures.length; i++) {
       const procedure = await procedureAppointment.create({
         appointment_id: appointment_id,
-        procedure_id: procedureArray[i],
-      })
+        procedure_id: procedures[i],
+      });
     }
-
     return res.status(201).json({
-      message: "Procedure appointment added"
+      message: "Procedure appointment added",
     });
   },
-  getProcedureAppointment: async function (req, res) {},
   deleteProcedureAppointment: async function (req, res) {
-    const procedureArray = req.body.procedureArray;
-    if (procedureArray.length === 0) {
-      return res.status(400).json({ message: "Procedure Array is empty" });
-    }
-    if (Array.isArray(procedureArray) === false) {
-      const procedure = await procedureAppointment.destroy({
-        appointment_id: appointment_id,
-        procedure_id: procedureArray,
+    const appointment_id = req.params.id;
+
+    const procedures = req.body.procedures;
+    if (Array.isArray(procedures) === false) {
+      await procedureAppointment.destroy({
+        where: { appointment_id: appointment_id, procedure_id: procedures },
       });
       return res.status(200).json({ message: "Procedure deleted" });
     }
-    for (let i = 0; i < procedureArray.length; i++) {
-      const procedure = await procedureAppointment.destroy({
-        appointment_id: appointment_id,
-        procedure_id: procedureArray[i],
+    for (let i = 0; i < procedures.length; i++) {
+      await procedureAppointment.destroy({
+        where: { appointment_id: appointment_id, procedure_id: procedures[i] },
       });
     }
     return res.status(200).json({ message: "Procedure deleted" });
